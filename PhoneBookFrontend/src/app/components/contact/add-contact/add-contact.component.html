@@ -1,0 +1,54 @@
+<div class="container">
+    <div class="row">
+
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <div class="py-4">
+                <h4>Add New Contact</h4>
+            </div>
+            <div class="form-wrapper my-2">
+                <form [formGroup]="form" (ngSubmit)="onSubmit()">
+                    <div class="form-group">
+                        <label>Name</label>
+                        <input type="text" class="form-control" aria-errormessage="nameError" required="required"
+                            formControlName="name">
+                        <small class="form-text text-danger" *ngIf="
+                                          f['name'].invalid &&
+                                          (f['name'].touched || f['name'].dirty)
+                                        ">Name is required.</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Phone Number</label>
+                        <input type="text" class="form-control" aria-errormessage="nameError" required="required"
+                            formControlName="phoneNumber">
+                        <small class="form-text text-danger" *ngIf="
+                                          f['phoneNumber'].invalid &&
+                                          (f['phoneNumber'].touched || f['phoneNumber'].dirty)
+                                        ">Phone number is required.</small>
+                    </div>
+                    <div class="form-group py-1">
+                        <label>Phone Book Type</label>
+                        <select class="form-select" aria-label="Default select example"
+                            formControlName="phoneBookTypeId">
+                            <option *ngFor="let types of phoneBookTypes" [value]="types.id">
+                                {{ types.name }}</option>
+                        </select>
+                        <small class="form-text text-danger"
+                            *ngIf="f['phoneBookTypeId'].invalid &&(f['phoneBookTypeId'].touched || f['phoneBookTypeId'].dirty)">Phone
+                            Book type cannot be
+                            empty</small>
+                    </div>
+
+                    <div class="d-flex justify-content-end py-4">
+                        <button class="btn btn-primary mx-2" type="submit">Add</button>
+                        <button class="btn btn-outline-secondary" (click)="onBtnCancelClick()">Cancel</button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+        <div class="col-md-4"></div>
+
+    </div>
+</div>

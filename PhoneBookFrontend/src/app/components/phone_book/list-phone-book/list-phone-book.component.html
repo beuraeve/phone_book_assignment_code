@@ -1,0 +1,22 @@
+<div class="container">
+    <div class="text-end py-5">
+       <button class="btn btn-primary" (click)="onAddPhoneBookClick()"> Add Phone Book</button>
+    </div>
+    <div class="table-responsive">
+      <table class="table">
+        <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Name</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let phoneBook of phoneBooks;index as i">
+          <th scope="row">{{i + 1}}</th>
+          <td>{{phoneBook.name}}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  

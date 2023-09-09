@@ -1,0 +1,30 @@
+<div class="row">
+
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+        <div class="py-4">
+            <h4>Add New Phone Book Type</h4>
+        </div>
+        <div class="form-wrapper my-2">
+            <form [formGroup]="form" (ngSubmit)="onSubmit()">
+                <div class="form-group">
+                    <label>Name</label>
+                    <input type="text" class="form-control" aria-errormessage="nameError" required="required"
+                        formControlName="name">
+                    <small class="form-text text-danger" *ngIf="
+                                      f['name'].invalid &&
+                                      (f['name'].touched || f['name'].dirty)
+                                    ">Name is required.</small>
+                </div>
+
+                <div class="d-flex justify-content-end py-4">
+                    <button class="btn btn-primary mx-2" type="submit">Add</button>
+                    <button class="btn btn-outline-secondary" (click)="onBtnCancelClick()">Cancel</button>
+                </div>
+            </form>
+        </div>
+
+    </div>
+    <div class="col-md-4"></div>
+
+</div>
